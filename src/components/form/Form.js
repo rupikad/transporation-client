@@ -14,6 +14,10 @@ function Form() {
           <input type="text" name="address" />
         </label>
         <label>
+          Date
+          <input type="text" name="date" />
+        </label>
+        <label>
           Time
           <input type="text" name="time" />
         </label>
