@@ -51,15 +51,15 @@ class MapContainer extends React.Component {
       >
         <Marker
           onClick = { this.onMarkerClick }
-          title = { 'Changing Colors Garage' }
+          title = { 'Your Home' }
           position = {{ lat: 45.5155, lng: -122.6793 }}
-          name = { 'Changing Colors Garage' }
+          name = { 'Your Home' }
         />
         <InfoWindow
           marker={this.state.activeMarker}
           visible={this.state.showingInfoWindow}>
           <div>
-            <h1>HELLO</h1>
+            <h1>HOME</h1>
           </div>
         </InfoWindow>
       </Map>
@@ -72,5 +72,6 @@ MapContainer.propTypes = {
 };
 
 export const MapDisplayContainer = GoogleApiWrapper({
-  apiKey: 'AIzaSyDBiuq7dDRszXgd8xTfADvK5RP9f9JawSQ'
+  apiKey: 'AIzaSyDBiuq7dDRszXgd8xTfADvK5RP9f9JawSQ',
+  libraries: ['places']
 })(MapContainer);
