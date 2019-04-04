@@ -4,13 +4,14 @@ import Form from '../components/form/Form';
 import { getHome, getAddress } from '../selectors/map';
 import { updateHome, updateAddress } from '../actions/map';
 import PropTypes from 'prop-types';
-import { getPlaceInfo } from '../services/map';
+import { getHomeInfo, getAddressInfo } from '../services/map';
 class FormContainer extends PureComponent {
   static propTypes = {
     home: PropTypes.string,
     address: PropTypes.string,
     handleChange: PropTypes.func,
-    handleSubmit: PropTypes.func
+    handleHomeSubmit: PropTypes.func,
+    handleAddressSubmit: PropTypes.func
   }
 
   render() {
@@ -19,7 +20,8 @@ class FormContainer extends PureComponent {
         home={this.props.home}
         address={this.props.address}
         onChange={this.props.handleChange} 
-        onSubmit={this.props.handleSubmit}
+        onHomeSubmit={this.props.handleHomeSubmit}
+        onAddressSubmit={this.props.handleAddressSubmit}
       />
     );
   }
@@ -38,9 +40,13 @@ const mapDispatchToProps = dispatch => ({
     };
     dispatch(factoryMethod[target.name](target.value));
   },
-  handleSubmit(home, address, event) {
+  handleHomeSubmit(home, event) {
     event.preventDefault();
-    dispatch(getPlaceInfo(home));
+    dispatch(getHomeInfo(home));
+  },
+  handleAddressSubmit(address, event) {
+    event.preventDefault();
+    dispatch(getAddressInfo(address));
   }
 });
 

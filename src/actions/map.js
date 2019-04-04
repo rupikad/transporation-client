@@ -1,13 +1,21 @@
 import { createAction } from 'promise-middleware-redux';
-import { getPlaceInfo } from '../services/map';
+import { getAddressInfo, getHomeInfo } from '../services/map';
 
 export const [
-  fetchPlaceInfo,
-  FETCH_PLACE_INFO,
+  fetchHomeInfo,
+  FETCH_HOME_INFO,
   LOAD_PLACE_INFO_START,
   LOAD_PLACE_INFO_END,
-  FETCH_PLACE_INFO_LOADING
-] = createAction('FETCH_PLACE_INFO', getPlaceInfo);
+  FETCH_HOME_INFO_LOADING
+] = createAction('FETCH_HOME_INFO', getHomeInfo);
+
+export const [
+  fetchAddressInfo,
+  FETCH_ADDRESS_INFO,
+  LOAD_ADDRESS_INFO_START,
+  LOAD_ADDRESS_INFO_END,
+  FETCH_ADDRESS_INFO_LOADING
+] = createAction('FETCH_ADDRESS_INFO', getAddressInfo);
 
 export const UPDATE_HOME = 'UPDATE_HOME';
 export const updateHome = home => ({

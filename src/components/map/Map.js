@@ -1,7 +1,7 @@
 import React from 'react';
 import { GoogleApiWrapper, InfoWindow, Map, Marker } from 'google-maps-react';
 import PropTypes from 'prop-types';
-import { getPlaceInfo } from '../../services/map';
+// import { getPlaceInfo } from '../../services/map';
 class MapContainer extends React.Component {
   state = {
     showingInfoWindow: false,
@@ -13,10 +13,6 @@ class MapContainer extends React.Component {
     super(props);
     this.onMarkerClick = this.onMarkerClick.bind(this);
     this.onMapClick = this.onMapClick.bind(this);
-  }
-
-  componentDidMount() {
-    getPlaceInfo();
   }
 
   onMarkerClick = (props, marker) => {
