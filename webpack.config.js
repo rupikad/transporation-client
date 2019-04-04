@@ -2,7 +2,7 @@
 const HtmlPlugin = require('html-webpack-plugin');
 const CleanPlugin = require('clean-webpack-plugin');
 const DotenvPlugin = require('dotenv-webpack');
-const CopyWebpackPlugin = require('copy-webpack-plugin');
+// const CopyWebpackPlugin = require('copy-webpack-plugin');
 
 
 module.exports = {
@@ -17,7 +17,7 @@ module.exports = {
   },
   plugins: [
     new DotenvPlugin({ systemvars: true }),
-    new CopyWebpackPlugin([{ from: 'public' }]),
+    // new CopyWebpackPlugin([{ from: 'public' }]),
     new HtmlPlugin({ template: './src/index.html' }),
     new CleanPlugin('./dist')
   ],
