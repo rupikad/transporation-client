@@ -17,7 +17,6 @@ class MapContainer extends React.Component {
 
   componentDidMount() {
     getPlaceInfo();
-// .then(res => console.log(res));
   }
 
   onMarkerClick = (props, marker) => {
