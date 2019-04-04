@@ -1,39 +1,77 @@
-import React, { Component } from 'react';
-import GoogleMapReact from 'google-map-react';
+import React from 'react';
+import { GoogleApiWrapper, InfoWindow, Map, Marker } from 'google-maps-react';
 import PropTypes from 'prop-types';
- 
-const AnyReactComponent = ({ text }) => <div>{text}</div>;
 
-AnyReactComponent.propTypes = {
-  text: PropTypes.string
-};
- 
-class Map extends Component {
-  static defaultProps = {
-    center: {
-      lat: 59.95,
-      lng: 30.33
-    },
-    zoom: 11
+class MapContainer extends React.Component {
+  state = {
+    showingInfoWindow: false,
+    activeMarker: {},
+    selectedPlace: {}
   };
- 
+
+  constructor(props) {
+    super(props);
+    this.onMarkerClick = this.onMarkerClick.bind(this);
+    this.onMapClick = this.onMapClick.bind(this);
+  }
+
+  onMarkerClick = (props, marker) => {
+    this.setState({
+      selectedPlace: props,
+      activeMarker: marker,
+      showingInfoWindow: true
+    });
+  };
+
+  onMapClick = () => {
+    if(this.state.showingInfoWindow) {
+      this.setState({
+        showingInfoWindow: false,
+        activeMarker: null
+      });
+    }
+  };
+
   render() {
+    const style = {
+      width: '50vw',
+      height: '75vh',
+      'marginLeft': 'auto',
+      'marginRight': 'auto'
+    };
     return (
-      <div style={{ height: '100vh', width: '100%' }}>
-        <GoogleMapReact
-          bootstrapURLKeys={{ key: 'AIzaSyDBiuq7dDRszXgd8xTfADvK5RP9f9JawSQ' }}
-          defaultCenter={{ lat:59.955413, lng:30.337844 }}
-          defaultZoom={9}
-        >
-          <AnyReactComponent
-            lat={59.955413}
-            lng={30.337844}
-            text="My Marker"
-          />
-        </GoogleMapReact>
-      </div>
+      <Map
+        item
+        xs = { 12 }
+        style = { style }
+        google = { this.props.google }
+        onClick = { this.onMapClick }
+        zoom = { 14 }
+        initialCenter = {{ lat: 45.5155, lng: -122.6793 }}
+      >
+        <Marker
+          onClick = { this.onMarkerClick }
+          title = { 'Your Home' }
+          position = {{ lat: 45.5155, lng: -122.6793 }}
+          name = { 'Your Home' }
+        />
+        <InfoWindow
+          marker={this.state.activeMarker}
+          visible={this.state.showingInfoWindow}>
+          <div>
+            <h1>HOME</h1>
+          </div>
+        </InfoWindow>
+      </Map>
     );
   }
 }
- 
-export default Map;
+
+MapContainer.propTypes = {
+  google: PropTypes.object
+};
+
+export const MapDisplayContainer = GoogleApiWrapper({
+  apiKey: 'AIzaSyDBiuq7dDRszXgd8xTfADvK5RP9f9JawSQ',
+  libraries: ['places']
+})(MapContainer);
