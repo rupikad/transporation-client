@@ -1,7 +1,6 @@
 import React from 'react';
 import { GoogleApiWrapper, InfoWindow, Map, Marker } from 'google-maps-react';
 import PropTypes from 'prop-types';
-
 class MapContainer extends React.Component {
   state = {
     showingInfoWindow: false,
@@ -34,8 +33,9 @@ class MapContainer extends React.Component {
 
   render() {
     const style = {
-      width: '50vw',
+      width: '75vw',
       height: '75vh',
+      'marginTop': '50px',
       'marginLeft': 'auto',
       'marginRight': 'auto'
     };
