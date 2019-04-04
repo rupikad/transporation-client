@@ -1,15 +1,15 @@
 import React from 'react';
-import {MapDisplayContainer} from '../map/Map';
-import Form from '../form/Form';
+import { MapDisplayContainer } from '../map/Map';
+import FormContainerConnect from '../../container/FormContainer';
 
 function App() {
   return (
     <>
       <h1>HELLO MAP</h1>
+      <FormContainerConnect />
       <MapDisplayContainer />
-      <Form />
     </>
-  )
+  );
 }
 
 export default App;

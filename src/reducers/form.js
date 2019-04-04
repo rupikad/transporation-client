@@ -1,7 +1,8 @@
-import { CREATE_DESTINATION } from //action file
+import { UPDATE_HOME } from '../actions/map';
 
 const initialState = {
   home: '',
+  placeInfo: 'Portland, OR',
   address: '',
   time: '',
   date: '',
@@ -9,12 +10,12 @@ const initialState = {
 
 export default function reducer(state = initialState, { type, payload }) {
   switch(type) {
-    case CREATE_DESTINATION: 
+    case UPDATE_HOME: 
       return {
         ...state, 
-        home: payload.body,
-        address: payload.body,
-        time: payload
-      }
+        home: payload
+      };
+    default:
+      return state;
   }
 }
