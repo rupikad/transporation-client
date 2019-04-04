@@ -1,32 +1,46 @@
 import React, { PureComponent } from 'react';
 import { connect } from 'react-redux';
 import Form from '../components/form/Form';
-import { getHome } from '../selectors/map';
-import { updateHome } from '../actions/map';
+import { getHome, getAddress } from '../selectors/map';
+import { updateHome, updateAddress } from '../actions/map';
 import PropTypes from 'prop-types';
+import { getPlaceInfo } from '../services/map';
 class FormContainer extends PureComponent {
   static propTypes = {
     home: PropTypes.string,
-    handleChange: PropTypes.func
+    address: PropTypes.string,
+    handleChange: PropTypes.func,
+    handleSubmit: PropTypes.func
   }
 
   render() {
     return (
       <Form 
         home={this.props.home}
+        address={this.props.address}
         onChange={this.props.handleChange} 
+        onSubmit={this.props.handleSubmit}
       />
     );
   }
 }
 
 const mapStateToProps = state => ({
-  home: getHome(state)
+  home: getHome(state),
+  address: getAddress(state)
 });
 
 const mapDispatchToProps = dispatch => ({
   handleChange({ target }) {
-    dispatch(updateHome(target.value));
+    const factoryMethod = {
+      home: updateHome,
+      address: updateAddress
+    };
+    dispatch(factoryMethod[target.name](target.value));
+  },
+  handleSubmit(home, address, event) {
+    event.preventDefault();
+    dispatch(getPlaceInfo(home));
   }
 });
 

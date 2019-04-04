@@ -1,4 +1,4 @@
-import { UPDATE_HOME } from '../actions/map';
+import { UPDATE_HOME, UPDATE_ADDRESS } from '../actions/map';
 
 const initialState = {
   home: '',
@@ -14,6 +14,11 @@ export default function reducer(state = initialState, { type, payload }) {
       return {
         ...state, 
         home: payload
+      };
+    case UPDATE_ADDRESS: 
+      return {
+        ...state,
+        address: payload
       };
     default:
       return state;

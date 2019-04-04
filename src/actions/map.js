@@ -10,7 +10,13 @@ export const [
 ] = createAction('FETCH_PLACE_INFO', getPlaceInfo);
 
 export const UPDATE_HOME = 'UPDATE_HOME';
-export const updateHome = address => ({
+export const updateHome = home => ({
   type: UPDATE_HOME,
+  payload: home
+});
+
+export const UPDATE_ADDRESS = 'UPDATE_ADDRESS';
+export const updateAddress = address => ({
+  type: UPDATE_ADDRESS,
   payload: address
 });
