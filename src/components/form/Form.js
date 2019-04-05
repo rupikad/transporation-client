@@ -6,7 +6,7 @@ import styles from './Form.css';
 function Form({ home, address, onChange, onSubmit }) {
   return (
     <>
-    <Header />
+    <Header/>
     <form className={styles.form} onSubmit={onSubmit.bind(null, home, address)}>
       <label>
         Home
