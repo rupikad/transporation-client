@@ -1,6 +1,8 @@
 import React from 'react';
 import { GoogleApiWrapper, InfoWindow, Map, Marker } from 'google-maps-react';
 import PropTypes from 'prop-types';
+import Footer from '../footer/Footer';
+
 class MapContainer extends React.Component {
   state = {
     showingInfoWindow: false,
@@ -25,6 +27,7 @@ class MapContainer extends React.Component {
       'marginRight': 'auto'
     };
     return (
+      <>
       <Map
         item
         xs = { 12 }
@@ -43,11 +46,11 @@ class MapContainer extends React.Component {
         <InfoWindow
           marker={this.state.activeMarker}
           visible={this.state.showingInfoWindow}>
-          <div>
-            <h1>HOME</h1>
-          </div>
+
         </InfoWindow>
       </Map>
+      <Footer/>
+      </>
     );
   }
 }

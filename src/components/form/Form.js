@@ -1,10 +1,12 @@
 import React from 'react';
 import PropTypes from 'prop-types';
+import Header from '../header/Header';
+import styles from './Form.css';
 
 function Form({ home, address, onChange, onSubmit }) {
   return (
     <>
-    <form onSubmit={onSubmit.bind(null, home, address)}>
+    <form className={styles.form} onSubmit={onSubmit.bind(null, home, address)}>
       <label>
         Home
         <input type="text" name="home" value={home} onChange={onChange} />
