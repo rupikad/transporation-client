@@ -2,6 +2,7 @@
   background-image: url('https://raw.githubusercontent.com/healthsparq-hackathon-2019/client/dev/src/assets/geometry.png');
   width: 100%;
   padding: 1em;
+  font-family: 'Lato', sans-serif;
 }   
 .h1 {
   text-align: center;
