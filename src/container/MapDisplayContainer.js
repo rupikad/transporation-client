@@ -26,8 +26,8 @@ class MapClass extends React.Component {
     }
     return (
       <div className={styles.map}>
-        {directions.distance && <p>{directions.distance.text}</p>}
-        {directions.duration && <><p>{directions.duration.text}</p> <p>{distanceText}</p></>}
+        {directions.distance && <p>Distance: {directions.distance.text}</p>}
+        {directions.duration && <><p>Duration: {directions.duration.text}</p> <p>Ride Options: {distanceText}</p></>}
         <MapDisplayContainer 
           fetch={fetch}
           info={info}
