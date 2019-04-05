@@ -7,16 +7,17 @@ function Form({ home, address, onChange, onSubmit }) {
   return (
     <>
     <Header/>
+   
     <form className={styles.form} onSubmit={onSubmit.bind(null, home, address)}>
       <label>
-        Home
+        Home:
         <input type="text" name="home" value={home} onChange={onChange} />
       </label>
       <label>
         Provider Address:
         <input type="address" name="address" value={address} onChange={onChange} />
       </label>
-      <button>SUBMIT</button>
+      <button >SUBMIT</button>
     </form>
     </>
   );
