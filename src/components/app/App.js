@@ -5,7 +5,6 @@ import FormContainerConnect from '../../container/FormContainer';
 function App() {
   return (
     <>
-      <h1>HELLO MAP</h1>
       <FormContainerConnect />
       <MapDisplayContainer />
     </>
