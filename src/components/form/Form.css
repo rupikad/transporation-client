@@ -1,7 +1,6 @@
 .form {
   display: flex; 
   padding-bottom: 1.25rem;
-  font-family: 'Lato', sans-serif;
   
   input {
     margin: 0 .25rem;
@@ -10,6 +9,12 @@
     border: 1px solid #48b6be;
     border-radius: 5px;
     transition: border-color .5s ease-out;
+  }
 
+  button {
+    border: 1px solid #48b6be;
+    border-radius: 3px;
+    cursor: pointer;
+    
   }
 }
