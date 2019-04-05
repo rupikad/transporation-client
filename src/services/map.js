@@ -1,7 +1,9 @@
 import { placesInstance } from './axios/axios';
 
-export const getPlaceInfo = async() => {
-  const res = await placesInstance.get(`findplacefromtext/json?input=Portland%20OR&inputtype=textquery&fields=formatted_address,geometry&key=${process.env.API_KEY}`);
-  console.log(res.data.candidates[0].geometry.location);
-  return res.data.candidates[0].geometry.location;
+export const getDirectionsInfo = async(homeQuery, providerQuery) => {
+  const encodedHomeQuery = encodeURI(homeQuery);
+  const encodedProviderQuery = encodeURI(providerQuery);
+  const res = await placesInstance.get(`json?origin=${encodedHomeQuery}&destination=${encodedProviderQuery}&key=${process.env.API_KEY}`);
+  console.log(res.data.routes[0]);
+  return res.data.routes[0];
 };

@@ -1,7 +1,6 @@
 import React from 'react';
 import { GoogleApiWrapper, InfoWindow, Map, Marker } from 'google-maps-react';
 import PropTypes from 'prop-types';
-import { getPlaceInfo } from '../../services/map';
 import Footer from '../footer/Footer';
 
 class MapContainer extends React.Component {
@@ -13,30 +12,11 @@ class MapContainer extends React.Component {
 
   constructor(props) {
     super(props);
-    this.onMarkerClick = this.onMarkerClick.bind(this);
-    this.onMapClick = this.onMapClick.bind(this);
   }
 
-  componentDidMount() {
-    getPlaceInfo();
+  componentDidUpdate() {
+    console.log('hello?', this.props.center);
   }
-
-  onMarkerClick = (props, marker) => {
-    this.setState({
-      selectedPlace: props,
-      activeMarker: marker,
-      showingInfoWindow: true
-    });
-  };
-
-  onMapClick = () => {
-    if(this.state.showingInfoWindow) {
-      this.setState({
-        showingInfoWindow: false,
-        activeMarker: null
-      });
-    }
-  };
 
   render() {
     const style = {
@@ -55,13 +35,13 @@ class MapContainer extends React.Component {
         google = { this.props.google }
         onClick = { this.onMapClick }
         zoom = { 14 }
-        initialCenter = {{ lat: 45.5155, lng: -122.6793 }}
+        initialCenter = {this.props.center}
       >
         <Marker
-          onClick = { this.onMarkerClick }
-          title = { 'Your Home' }
-          position = {{ lat: 45.5155, lng: -122.6793 }}
-          name = { 'Your Home' }
+          position = {this.props.info.southwest}
+        />
+        <Marker
+          position = {this.props.info.northeast}
         />
         <InfoWindow
           marker={this.state.activeMarker}
@@ -76,7 +56,11 @@ class MapContainer extends React.Component {
 }
 
 MapContainer.propTypes = {
-  google: PropTypes.object
+  google: PropTypes.object,
+  info: PropTypes.object,
+  directions: PropTypes.object,
+  fetch: PropTypes.func,
+  center: PropTypes.object
 };
 
 export const MapDisplayContainer = GoogleApiWrapper({
