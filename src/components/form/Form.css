@@ -1,9 +1,11 @@
 .form {
   display: flex; 
   padding-bottom: 1.25rem;
+  font-family: 'Lato', sans-serif;
   
   input {
     margin: 0 .25rem;
+    padding: 5px;
     min-width: 125px;
     border: 1px solid #48b6be;
     border-radius: 5px;

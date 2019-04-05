@@ -1,7 +1,6 @@
 import React from 'react';
-import { GoogleApiWrapper, InfoWindow, Map, Marker } from 'google-maps-react';
+import { GoogleApiWrapper, Map, Marker } from 'google-maps-react';
 import PropTypes from 'prop-types';
-
 
 class MapContainer extends React.Component {
   state = {
@@ -14,14 +13,10 @@ class MapContainer extends React.Component {
     super(props);
   }
 
-  componentDidUpdate() {
-    console.log('hello?', this.props.center);
-  }
-
   render() {
     const style = {
       width: '75vw',
-      height: '75vh',
+      // height: '75vh',
       'marginTop': '50px',
       'marginLeft': 'auto',
       'marginRight': 'auto'
@@ -34,7 +29,7 @@ class MapContainer extends React.Component {
         style = { style }
         google = { this.props.google }
         onClick = { this.onMapClick }
-        zoom = { 14 }
+        zoom = { 12 }
         initialCenter = {this.props.center}
       >
         <Marker
@@ -43,11 +38,6 @@ class MapContainer extends React.Component {
         <Marker
           position = {this.props.info.northeast}
         />
-        <InfoWindow
-          marker={this.state.activeMarker}
-          visible={this.state.showingInfoWindow}>
-
-        </InfoWindow>
       </Map>
       </>
     );

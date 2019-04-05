@@ -1,9 +1,9 @@
 import { UPDATE_HOME, UPDATE_ADDRESS, FETCH_DIRECTIONS_INFO } from '../actions/map';
 
 const initialState = {
-  home: '',
-  center: { lat: 45.5155, lng: -122.6793 },
-  address: '',
+  home: '30 NW 10th Avenue, Portland, OR 97209',
+  center: { lat: 45.5242219, lng: -122.6800816 },
+  address: '9205 SW Barnes Rd. Portland, OR 97225',
   time: '',
   date: '',
   info: {},
