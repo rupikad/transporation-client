@@ -4,7 +4,7 @@ import Form from '../components/form/Form';
 import { getHome, getAddress } from '../selectors/map';
 import { updateHome, updateAddress } from '../actions/map';
 import PropTypes from 'prop-types';
-import { getDirectionsInfo } from '../services/map';
+import { fetchDirectionsInfo } from '../actions/map';
 class FormContainer extends PureComponent {
   static propTypes = {
     home: PropTypes.string,
@@ -40,7 +40,7 @@ const mapDispatchToProps = dispatch => ({
   },
   handleSubmit(home, address, event) {
     event.preventDefault();
-    dispatch(getDirectionsInfo(home, address));
+    dispatch(fetchDirectionsInfo(home, address));
   }
 });
 
