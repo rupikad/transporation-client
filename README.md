@@ -1,6 +1,6 @@
 # WTFix-A-THON 2019 
 
-This application was developed by students at the Healthsparq Hack-a-thon as an open source transportation solution for patients who want a more affordable method of transit from their home to a hospital.
+This application was developed by students at the Healthsparq Hack-a-thon as an open source transportation solution for patients who want a more affordable method of transit from their home to a hospital. This project employs React and Redux frameworks.
 
 ## Development
 
