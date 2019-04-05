@@ -1,5 +1,5 @@
 .header {
-  background-image: url('https://raw.githubusercontent.com/healthsparq-hackathon-2019/client/dev/src/assets/geometry.png');
+  background-color: rgba(72,182,190, .8);
   width: 100%;
   padding: 1em;
 }   
