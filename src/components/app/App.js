@@ -1,5 +1,5 @@
 import React from 'react';
-import { MapDisplayContainer } from '../map/Map';
+import { MapContainer } from '../../container/MapDisplayContainer';
 import FormContainerConnect from '../../container/FormContainer';
 
 function App() {
@@ -7,7 +7,7 @@ function App() {
     <>
       <h1>HELLO MAP</h1>
       <FormContainerConnect />
-      <MapDisplayContainer />
+      <MapContainer />
     </>
   );
 }
