@@ -11,5 +11,20 @@
       line-height: 20px;
       text-align: center;
     }
+    ul {
+      margin-left: 0;
+      padding-left: 0;
+    }
+    li {
+      list-style: none;
+      margin-left: 0;
+      padding-left: 0;
+      text-align: center;
+      button {
+        padding: 5px;
+        font-size: 1.10em;
+        margin-bottom: 10px;
+      }
+    }
   }
 }

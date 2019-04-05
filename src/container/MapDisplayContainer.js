@@ -19,10 +19,10 @@ class MapClass extends React.Component {
     let distanceText;
     if(directions.duration) {
       if(parseInt(directions.duration.text) > 10) {
-        distanceText = <><a href="https://rideconnection.org/">Call for Ride Connection!</a> 
+        distanceText = <><button>Ride Connection!</button> 
         <li>Trimet Bus Duration: 21 min</li></>;
       } else if(parseInt(directions.duration.text) < 10) {
-        distanceText = <a href="https://www.lyft.com/rider">Lyft is an affordable option!</a>;
+        distanceText = <button>Lyft</button>;
       }
       else if(parseInt(directions.duration.text) > 100) {
         distanceText = <p>Loading...</p>;
