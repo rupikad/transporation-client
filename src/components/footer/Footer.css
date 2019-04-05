@@ -2,8 +2,9 @@
   background-color: #48b6be;
   padding: 1em;
   text-align: center;
-  position: relative;
-  margin-bottom: -50px;
+  position: fixed;
+  width: 100vh;
+  bottom: 0vh;
 }
 
 .copy {
