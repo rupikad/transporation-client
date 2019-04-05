@@ -24,6 +24,9 @@ class MapClass extends React.Component {
       } else if(parseInt(directions.duration.text) < 10) {
         distanceText = <a href="https://www.lyft.com/rider">Lyft is an affordable option!</a>;
       }
+      else if(parseInt(directions.duration.text) > 100) {
+        distanceText = <p>Loading...</p>;
+      }
     }
     return (
       <div className={styles.map}>
