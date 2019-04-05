@@ -1,0 +1,10 @@
+.header {
+  background-image: url('https://raw.githubusercontent.com/healthsparq-hackathon-2019/client/dev/src/assets/geometry.png');
+  width: 100%;
+  padding: 1em;
+}   
+.h1 {
+  text-align: center;
+  font-weight: 800;
+  font-size: 300%;
+}
